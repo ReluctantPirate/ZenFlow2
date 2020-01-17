@@ -2,12 +2,12 @@ enum goStates {INERT, PUSH, SHUFFLE, RESOLVE};
 byte goState = INERT;
 
 Color blinkColors[4] = {RED, YELLOW, CYAN, WHITE};
-byte currentColor = random(3);
+byte currentColor = 0;
 byte incomingColor;
 
 void setup() {
   // put your setup code here, to run once:
-
+  randomize();
 }
 
 void loop() {
@@ -76,7 +76,7 @@ void inertLoop() {
 void pushLoop() {
   //so in order to move to RESOLVE, we need to know that all of our same-colored neighbors are in PUSH
   goState = RESOLVE;//defaults to RESOLVE, but can be changed later
-  
+
   FOREACH_FACE(f) {
     if (!isValueReceivedOnFaceExpired(f)) { //neighbor!
       byte neighborData = getLastValueReceivedOnFace(f);
@@ -138,33 +138,51 @@ byte getColor(byte data) {
 
 void displayColors() {
 
+  //  switch (goState) {
+  //    case INERT:
+  //      setColor(blinkColors[currentColor]);
+  //      break;
+  //    case PUSH:
+  //      setColorOnFace(blinkColors[currentColor], 0);
+  //      setColorOnFace(blinkColors[currentColor], 2);
+  //      setColorOnFace(blinkColors[currentColor], 4);
+  //      setColorOnFace(blinkColors[incomingColor], 1);
+  //      setColorOnFace(blinkColors[incomingColor], 3);
+  //      setColorOnFace(blinkColors[incomingColor], 5);
+  //      break;
+  //    case SHUFFLE:
+  //      setColorOnFace(blinkColors[currentColor], 0);
+  //      setColorOnFace(blinkColors[currentColor], 2);
+  //      setColorOnFace(blinkColors[currentColor], 4);
+  //      setColorOnFace(blinkColors[incomingColor], 1);
+  //      setColorOnFace(blinkColors[incomingColor], 3);
+  //      setColorOnFace(blinkColors[incomingColor], 5);
+  //      break;
+  //    case RESOLVE:
+  //      setColorOnFace(blinkColors[currentColor], 1);
+  //      setColorOnFace(blinkColors[currentColor], 3);
+  //      setColorOnFace(blinkColors[currentColor], 5);
+  //      setColorOnFace(blinkColors[incomingColor], 0);
+  //      setColorOnFace(blinkColors[incomingColor], 2);
+  //      setColorOnFace(blinkColors[incomingColor], 4);
+  //      break;
+  //  }
+
   switch (goState) {
     case INERT:
-      setColor(blinkColors[currentColor]);
+      setColor(OFF);
+      FOREACH_FACE(f){
+        if
+      }
       break;
     case PUSH:
-      setColorOnFace(blinkColors[currentColor], 0);
-      setColorOnFace(blinkColors[currentColor], 2);
-      setColorOnFace(blinkColors[currentColor], 4);
-      setColorOnFace(blinkColors[incomingColor], 1);
-      setColorOnFace(blinkColors[incomingColor], 3);
-      setColorOnFace(blinkColors[incomingColor], 5);
+      setColor(RED);
       break;
     case SHUFFLE:
-      setColorOnFace(blinkColors[currentColor], 0);
-      setColorOnFace(blinkColors[currentColor], 2);
-      setColorOnFace(blinkColors[currentColor], 4);
-      setColorOnFace(blinkColors[incomingColor], 1);
-      setColorOnFace(blinkColors[incomingColor], 3);
-      setColorOnFace(blinkColors[incomingColor], 5);
+      setColor(YELLOW);
       break;
     case RESOLVE:
-      setColorOnFace(blinkColors[currentColor], 1);
-      setColorOnFace(blinkColors[currentColor], 3);
-      setColorOnFace(blinkColors[currentColor], 5);
-      setColorOnFace(blinkColors[incomingColor], 0);
-      setColorOnFace(blinkColors[incomingColor], 2);
-      setColorOnFace(blinkColors[incomingColor], 4);
+      setColor(BLUE);
       break;
   }
 
