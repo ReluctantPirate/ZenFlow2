@@ -138,52 +138,49 @@ byte getColor(byte data) {
 
 void displayColors() {
 
-  //  switch (goState) {
-  //    case INERT:
-  //      setColor(blinkColors[currentColor]);
-  //      break;
-  //    case PUSH:
-  //      setColorOnFace(blinkColors[currentColor], 0);
-  //      setColorOnFace(blinkColors[currentColor], 2);
-  //      setColorOnFace(blinkColors[currentColor], 4);
-  //      setColorOnFace(blinkColors[incomingColor], 1);
-  //      setColorOnFace(blinkColors[incomingColor], 3);
-  //      setColorOnFace(blinkColors[incomingColor], 5);
-  //      break;
-  //    case SHUFFLE:
-  //      setColorOnFace(blinkColors[currentColor], 0);
-  //      setColorOnFace(blinkColors[currentColor], 2);
-  //      setColorOnFace(blinkColors[currentColor], 4);
-  //      setColorOnFace(blinkColors[incomingColor], 1);
-  //      setColorOnFace(blinkColors[incomingColor], 3);
-  //      setColorOnFace(blinkColors[incomingColor], 5);
-  //      break;
-  //    case RESOLVE:
-  //      setColorOnFace(blinkColors[currentColor], 1);
-  //      setColorOnFace(blinkColors[currentColor], 3);
-  //      setColorOnFace(blinkColors[currentColor], 5);
-  //      setColorOnFace(blinkColors[incomingColor], 0);
-  //      setColorOnFace(blinkColors[incomingColor], 2);
-  //      setColorOnFace(blinkColors[incomingColor], 4);
-  //      break;
-  //  }
+    switch (goState) {
+      case INERT:
+        setColor(blinkColors[currentColor]);
+        break;
+      case PUSH:
+        setColorOnFace(blinkColors[currentColor], 0);
+        setColorOnFace(blinkColors[currentColor], 2);
+        setColorOnFace(blinkColors[currentColor], 4);
+        setColorOnFace(blinkColors[incomingColor], 1);
+        setColorOnFace(blinkColors[incomingColor], 3);
+        setColorOnFace(blinkColors[incomingColor], 5);
+        break;
+      case SHUFFLE:
+        setColorOnFace(blinkColors[currentColor], 0);
+        setColorOnFace(blinkColors[currentColor], 2);
+        setColorOnFace(blinkColors[currentColor], 4);
+        setColorOnFace(blinkColors[incomingColor], 1);
+        setColorOnFace(blinkColors[incomingColor], 3);
+        setColorOnFace(blinkColors[incomingColor], 5);
+        break;
+      case RESOLVE:
+        setColorOnFace(blinkColors[currentColor], 1);
+        setColorOnFace(blinkColors[currentColor], 3);
+        setColorOnFace(blinkColors[currentColor], 5);
+        setColorOnFace(blinkColors[incomingColor], 0);
+        setColorOnFace(blinkColors[incomingColor], 2);
+        setColorOnFace(blinkColors[incomingColor], 4);
+        break;
+    }
 
-  switch (goState) {
-    case INERT:
-      setColor(OFF);
-      FOREACH_FACE(f){
-        if
-      }
-      break;
-    case PUSH:
-      setColor(RED);
-      break;
-    case SHUFFLE:
-      setColor(YELLOW);
-      break;
-    case RESOLVE:
-      setColor(BLUE);
-      break;
-  }
+//  switch (goState) {
+//    case INERT:
+//      setColor(WHITE);
+//      break;
+//    case PUSH:
+//      setColor(RED);
+//      break;
+//    case SHUFFLE:
+//      setColor(YELLOW);
+//      break;
+//    case RESOLVE:
+//      setColor(BLUE);
+//      break;
+//  }
 
 }
