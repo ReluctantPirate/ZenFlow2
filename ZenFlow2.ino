@@ -56,7 +56,7 @@ void inertLoop() {
       if (getGoState(neighborData) == SHUFFLE) {
         //begin shuffling!
         goState = SHUFFLE;
-        currentColor = random(3);
+        incomingColor = random(3);
       }
     }
   }
@@ -120,7 +120,7 @@ void resolveLoop() {
   FOREACH_FACE(f) {
     if (!isValueReceivedOnFaceExpired(f)) { //neighbor!
       byte neighborData = getLastValueReceivedOnFace(f);
-      if (getGoState(neighborData) == PUSH) {//this neighbor is still pushing
+      if (getGoState(neighborData) == PUSH || getGoState(neighborData) == SHUFFLE) {//this neighbor is still pushing
         canInert = false;
       }
     }
